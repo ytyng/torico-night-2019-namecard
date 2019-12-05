@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+@page {
+  size: 91mm 54.5mm;
+  margin: 0;
+}
+
+@media print {
+  body {
+    width: 91mm; /* needed for Chrome */
+  }
+}
+
+.sheet {
+  width: 91mm;
+  height: 54.5mm; /* 0.5mm余裕をもたせる */
+  // page-break-after: always;
+  page-break-before: always;
+  position: relative;
+
+  margin: 0;
+  padding: 5mm;
+
+  &:nth-of-type(1) {
+    page-break-before: auto;
+  }
+
+  .name {
+    width: 100%;
+    margin-top: 15mm;
+    height: 10mm;
+
+    line-height: 10mm;
+    //border: 1px solid black;
+    font-size: 13mm;
+    text-align: center;
+  }
+
+  .signature {
+    width: 100%;
+    margin-top: 10mm;
+    height: 10mm;
+    line-height: 10mm;
+    font-size: 3mm;
+    color: #777;
+    text-align: center;
+  }
+
+}
+
+/* プレビュー用のスタイル */
+@media screen {
+  body {
+    background: #eee;
+  }
+
+  .sheet {
+    background: white; /* 背景を白く */
+    box-shadow: 0 .5mm 2mm rgba(0, 0, 0, .3); /* ドロップシャドウ */
+    margin: 5mm;
+  }
+}
+
